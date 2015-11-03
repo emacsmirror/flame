@@ -8,7 +8,7 @@
 ;; Maintainer: Noah Friedman <friedman@splode.com>
 ;; Keywords: games
 
-;; $Id: flame.el,v 1.5 2002/07/15 08:29:28 friedman Exp $
+;; $Id: flame.el,v 1.6 2015/06/30 20:27:12 friedman Exp $
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -21,9 +21,7 @@
 ;; GNU General Public License for more details.
 ;;
 ;; You should have received a copy of the GNU General Public License
-;; along with this program; if not, you can either send email to this
-;; program's maintainer or write to: The Free Software Foundation,
-;; Inc.; 59 Temple Place, Suite 330; Boston, MA 02111-1307, USA.
+;; along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 ;;; Commentary:
 
@@ -491,12 +489,6 @@
      "they don't want their children to grow up to be too lazy to steal"
      "they're too *adjective")))
 
-(defmacro flame-random (n)
-  (if (and (numberp n)
-           (string-lessp emacs-version "19"))
-      (list '% '(abs (random)) n)
-    (list 'random n)))
-
 
 ;; public functions
 
@@ -556,7 +548,7 @@ Argument N determines how many sentences are in the paragraph."
   (switch-to-buffer "*doctor*")
   (sit-for 0)
   (while (not (input-pending-p))
-    (insert-flame (1+ (flame-random 2)))
+    (insert-flame (1+ (random 2)))
     (insert "\n")
     (sit-for 0)
     (doctor-ret-or-read 1)))
@@ -588,9 +580,8 @@ Argument N determines how many sentences are in the paragraph."
              (princ string))))))
 
 ;; Return a random member of list L.
-(defun flame-random-member (l)
-  (and (consp l)
-       (nth (flame-random (length l)) l)))
+(defsubst flame-random-member (l)
+  (nth (random (length l)) l))
 
 ;; Tokenize sentence so substitution words are separated.
 ;; The character `^' can be used to join suffixes to the end of a
