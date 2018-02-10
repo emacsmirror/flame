@@ -590,7 +590,7 @@ Argument N determines how many sentences are in the paragraph."
       (kill-buffer buf))))
 
 ;;;###autoload
-(defun psychoanalyze-flamer ()
+(defun flame-psychoanalyze ()
   "Mr. Angry goes to the analyst."
   (interactive)
   (doctor)                              ; start the psychotherapy
