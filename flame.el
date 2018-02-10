@@ -510,7 +510,7 @@ If optional arg INSERTP is non-nil, the sentences are inserted into the
     (while (not (zerop n))
       (setq l (cons (flame-string) l))
       (setq n (1- n)))
-    (and (or insertp (interactive-p))
+    (and (or insertp (called-interactively-p 'interactive))
          (flame-display (mapconcat 'identity l "  ") "*Flame*" insertp))
     l))
 
