@@ -532,8 +532,7 @@ Prefix argument N means insert N sentences, formatted as a paragraph."
 Argument N determines how many sentences are in the paragraph."
   (let ((buf (generate-new-buffer " *flame-paragraph*")))
     (unwind-protect
-        (save-excursion
-          (set-buffer buf)
+        (with-current-buffer buf
           (insert-flame n)
           ;; don't return final newline
           (buffer-substring (point-min) (1- (point-max))))
@@ -572,8 +571,7 @@ Argument N determines how many sentences are in the paragraph."
            (and (eq temp-buffer-show-function 'show-temp-buffer)
                 (setq temp-buffer-show-function
                       (function (lambda (buf)
-                                  (save-excursion
-                                    (set-buffer buf)
+                                  (with-current-buffer buf
                                     (fill-paragraph nil))
                                   (show-temp-buffer buf)))))
            (with-output-to-temp-buffer temp-buffer-name
