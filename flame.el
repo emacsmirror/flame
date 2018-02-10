@@ -551,6 +551,13 @@ Argument N determines how many sentences are in the paragraph."
     (sit-for 0)
     (doctor-ret-or-read 1)))
 
+(defmacro flame-random (n)
+  "Return a pseudo-random number in interval [0,N)."
+  (if (and (numberp n)
+           (string-lessp emacs-version "19"))
+      (list '% '(abs (random)) n)
+    (list 'random n)))
+
 (defun flame-display (string temp-buffer-name insertp)
   "Display the flamage in a temporary buffer.
 STRING flamage string
