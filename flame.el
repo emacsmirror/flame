@@ -662,6 +662,5 @@ with a random selection from the appropriate list."
   s)
 
 (provide 'flame)
-(provide 'friedman-flame)
 
 ;;; flame.el ends here
