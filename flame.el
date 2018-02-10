@@ -59,7 +59,7 @@
 
 ;;; Code:
 
-(defvar flame-sentences
+(defcustom flame-sentences
   '("*adjective *group-adj *der-term!"
     "*der-term!"
     "*statement, huh?  So, *statement?"
@@ -99,9 +99,11 @@
     "your *quality is matched only by your *quality."
     "your *quality reminds me of a *thing.")
   "List of sentences used for flamage generation.
-Reference a member with *sentence")
+Reference a member with *sentence"
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-qualities
+(defcustom flame-qualities
   '("*adjective *quality"
     "bad grammar"
     "depravity"
@@ -120,9 +122,11 @@ Reference a member with *sentence")
     "ugliness"
     "worthlessness")
   "List of qualities used for flamage generation.
-Reference a member with *quality")
+Reference a member with *quality"
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-adjectives
+(defcustom flame-adjectives
   '("*adjective and *adjective"
     "abusive"
     "as *adjective as a *thing"
@@ -188,9 +192,11 @@ Reference a member with *quality")
     "unpleasant"
     "vacuous")
   "List of adjectives used for flamage generation.
-Reference a member with *adjective.")
+Reference a member with *adjective."
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-derogatory-terms
+(defcustom flame-derogatory-terms
   '("*adjective *der-term"
     "*der-term *der-term"
     "arsehole"
@@ -240,9 +246,11 @@ Reference a member with *adjective.")
     "whimpering scumbag"
     "wimp")
   "List of derogatory-terms used for flamage generation.
-Reference a member with *der-term.")
+Reference a member with *der-term."
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-things
+(defcustom flame-things
   '("*adjective *thing"
     "bug fix"
     "business plan"
@@ -289,10 +297,12 @@ Reference a member with *der-term.")
     "whale"
     "wood-burning stove")
   "List of things used for flamage generation.
-Reference a member with *thing.")
+Reference a member with *thing."
+  :group 'flame
+  :type '(repeat string))
 
 
-(defvar flame-group-adjectives
+(defcustom flame-group-adjectives
   '("*adjective"
     "*thing^-loving"
     "black"
@@ -329,9 +339,11 @@ Reference a member with *thing.")
     "working"
     "young")
   "List of group adjectives used for flamage generation.
-Reference a member with *group-adj.")
+Reference a member with *group-adj."
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-statements
+(defcustom flame-statements
   '("*group-adj people are all *adjective *der-term^s"
     "*group-adj people are all *adjective because *reason"
     "*group-adj people are inherently superior to *group-adj people"
@@ -409,9 +421,11 @@ Reference a member with *group-adj.")
     "you're *group-adj"
     "your *thing is great")
   "List of statements used for flamage generation.
-Reference a member with *statement.")
+Reference a member with *statement."
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-newspapers
+(defcustom flame-newspapers
   '("Beano"
     "Boston Glob"
     "Centre Bulletin"
@@ -425,9 +439,11 @@ Reference a member with *statement.")
     "Sun"
     "Wall Street Journal")
   "List of newspapers used for flamage generation.
-Reference a member with *paper.")
+Reference a member with *paper."
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-person
+(defcustom flame-person
   '("\"Head-for-the-mountains\" Bush"
     "Alaric the Visigoth"
     "Attilla the Hun"
@@ -452,28 +468,32 @@ Reference a member with *paper.")
     "the Pope"
     "Yassir Arafat")
   "List of people used for flamage generation.
-Reference a member with *person.")
+Reference a member with *person."
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-conspirators
-     '("CIA"
-     "Cubans"
-     "Democrats"
-     "drug cartels"
-     "FBI"
-     "Illuminati"
-     "Israelis"
-     "KGB"
-     "Mafia"
-     "Martians"
-     "NSA"
-     "PLO"
-     "Republicans"
-     "Russians"
-     "Yakuza")
-     "List of conspirators used for flamage generation.
-Reference a member with *conspirators.")
+(defcustom flame-conspirators
+  '("CIA"
+    "Cubans"
+    "Democrats"
+    "drug cartels"
+    "FBI"
+    "Illuminati"
+    "Israelis"
+    "KGB"
+    "Mafia"
+    "Martians"
+    "NSA"
+    "PLO"
+    "Republicans"
+    "Russians"
+    "Yakuza")
+  "List of conspirators used for flamage generation.
+Reference a member with *conspirators."
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-computer-os
+(defcustom flame-computer-os
   '("AIX"
     "CP/M"
     "Genera"
@@ -489,9 +509,11 @@ Reference a member with *conspirators.")
     "Windoze"
     "VMS")
   "List of computer operating systems used for flamage generation.
-Reference a member with *computer-os.")
+Reference a member with *computer-os."
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-war-things
+(defcustom flame-war-things
   '("*der-term^s"
     "democracy"
     "drugs"
@@ -501,9 +523,11 @@ Reference a member with *computer-os.")
     "spammers"
     "terrorism")
   "List of war-things used for flamage generation.
-Reference a member with *war-thing.")
+Reference a member with *war-thing."
+  :group 'flame
+  :type '(repeat string))
 
-(defvar flame-reasons
+(defcustom flame-reasons
   '("*person wouldn't have done it"
     "they can't afford *thing^s"
     "they can't spray paint that small"
@@ -512,8 +536,10 @@ Reference a member with *war-thing.")
     "they don't know how"
     "they don't want their children to grow up to be too lazy to steal"
     "they're too *adjective")
-     "List of flame-reasons used for flamage generation.
-Reference a member with *reason.")
+  "List of flame-reasons used for flamage generation.
+Reference a member with *reason."
+  :group 'flame
+  :type '(repeat string))
 
 ;; public functions
 
