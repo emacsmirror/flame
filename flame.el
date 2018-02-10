@@ -489,7 +489,6 @@
      "they don't want their children to grow up to be too lazy to steal"
      "they're too *adjective")))
 
-
 ;; public functions
 
 ;;;###autoload
@@ -552,7 +551,6 @@ Argument N determines how many sentences are in the paragraph."
     (sit-for 0)
     (doctor-ret-or-read 1)))
 
-
 (defun flame-display (string temp-buffer-name insertp)
   (let ((temp-buffer-show-function temp-buffer-show-function)
         (temp-buffer-show-hook
