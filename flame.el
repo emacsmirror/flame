@@ -662,7 +662,7 @@ INSERTP when nil use JBW display hacks"
        (nth (random (length l)) l)))
 
 (defun flame--split (s)
-"Tokenize sentence S so substitution words are separated.
+  "Tokenize sentence S so substitution words are separated.
 The character `^' can be used to join suffixes to the end of a
 substitution token, but do not show up in the resulting list.
 e.g. 'Many *word^s with *sub, with 2^32 at *end.'
@@ -702,7 +702,7 @@ e.g. 'Many *word^s with *sub, with 2^32 at *end.'
   l)
 
 (defun flame--iterate-list (str)
-"Iterate over string STR, replacing substrings.
+  "Iterate over string STR, replacing substrings.
 Replaces all substrings beginning with a '*' or '!'
 with a random selection from the appropriate list."
   (let* ((l (flame--split str))
