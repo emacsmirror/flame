@@ -510,7 +510,7 @@ If optional arg INSERTP is non-nil, the sentences are inserted into the
       (setq l (cons (flame-string) l))
       (setq n (1- n)))
     (and (or insertp (called-interactively-p 'interactive))
-         (flame-display (mapconcat 'identity l "  ") "*Flame*" insertp))
+         (flame--display (mapconcat 'identity l "  ") "*Flame*" insertp))
     l))
 
 ;;;###autoload
@@ -523,7 +523,7 @@ Prefix argument N means insert N sentences, formatted as a paragraph."
 ;;;###autoload
 (defun flame-string ()
   "Generate an inflammatory statement, and return it."
-  (flame-capitalize (flame-substitute 'sentence) t))
+  (flame--capitalize (flame--substitute 'sentence) t))
 
 ;;;###autoload
 (defun flame-paragraph (&optional n)
@@ -551,14 +551,16 @@ Argument N determines how many sentences are in the paragraph."
     (sit-for 0)
     (doctor-ret-or-read 1)))
 
-(defmacro flame-random (n)
+;;; private functions
+
+(defmacro flame--random (n)
   "Return a pseudo-random number in interval [0,N)."
   (if (and (numberp n)
            (string-lessp emacs-version "19"))
       (list '% '(abs (random)) n)
     (list 'random n)))
 
-(defun flame-display (string temp-buffer-name insertp)
+(defun flame--display (string temp-buffer-name insertp)
   "Display the flamage in a temporary buffer.
 STRING flamage string
 TEMP-BUFFER-NAME name of buffer
@@ -586,12 +588,12 @@ INSERTP when nil use JBW display hacks"
            (with-output-to-temp-buffer temp-buffer-name
              (princ string))))))
 
-(defsubst random-member (l)
+(defsubst flame--random-member (l)
   "Return a random member of list L."
   (and (consp l)
        (nth (random (length l)) l)))
 
-(defun flame-split (s)
+(defun flame--split (s)
 "Tokenize sentence S so substitution words are separated.
 The character `^' can be used to join suffixes to the end of a
 substitution token, but do not show up in the resulting list.
@@ -616,7 +618,7 @@ e.g. 'Many *word^s with *sub, with 2^32 at *end.'
     (store-match-data md)
     (nreverse l)))
 
-(defun flame-plural-correct (l)
+(defun flame--plural-correct (l)
   "Rudimentary pluralization correction.  L is a list of sentences."
   (let ((p l)
         elt end)
@@ -631,37 +633,37 @@ e.g. 'Many *word^s with *sub, with 2^32 at *end.'
       (setq p (cdr p))))
   l)
 
-(defun flame-iterate-list (str)
+(defun flame--iterate-list (str)
 "Iterate over string STR, replacing substrings.
 Replaces all substrings beginning with a '*' or '!'
 with a random selection from the appropriate list."
-  (let* ((l (flame-split str))
+  (let* ((l (flame--split str))
          (p l)
          elt)
     (while p
       (setq elt (car p))
       (cond ((= (length elt) 1))
             ((= (aref elt 0) ?*)
-             (setcar p (flame-substitute elt)))
+             (setcar p (flame--substitute elt)))
             ((= (aref elt 0) ?!)
-             (setcar p (flame-capitalize (flame-substitute elt)))))
+             (setcar p (flame--capitalize (flame--substitute elt)))))
       (setq p (cdr p)))
-    (mapconcat 'identity (flame-plural-correct l) "")))
+    (mapconcat 'identity (flame--plural-correct l) "")))
 
-(defun flame-substitute (category)
+(defun flame--substitute (category)
   "Perform substitutions in a random member of grammar CATEGORY."
-  (let ((tbl (flame-category category)))
+  (let ((tbl (flame--category category)))
     (if tbl
-        (flame-iterate-list (flame-random-member tbl))
+        (flame--iterate-list (flame--random-member tbl))
       category)))
 
-(defun flame-category (category)
+(defun flame--category (category)
   "Get the flame CATEGORY grammar."
   (and (stringp category)
        (setq category (intern (substring category 1))))
   (cdr (assq category flame-grammar)))
 
-(defun flame-capitalize (s &optional destructive)
+(defun flame--capitalize (s &optional destructive)
   "Capitalize S, optionally DESTRUCTIVE."
   (or destructive
       (setq s (copy-sequence s)))
