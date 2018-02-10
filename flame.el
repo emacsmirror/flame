@@ -1,4 +1,4 @@
-;;; flame.el --- automatic generation of flamage, as if we needed more
+;;; flame.el --- automatic generation of flamage, as if we needed more. -*- lexical-binding: t -*-
 
 ;; Copyright (C) 1986, 1987 Ian G. Batten
 ;; Copyright (C) 1994, 2002 Noah S. Friedman
