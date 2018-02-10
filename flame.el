@@ -499,7 +499,7 @@ Prefix argument N means generated a flame of N sentences.
 If called interactively, the results are displayed in a temporary buffer.
  Use \\[insert-flame] to insert a flame into the current buffer.
 
-If called from lisp, a list of N sentences is returned.
+If called from Lisp, a list of N sentences is returned.
 If optional arg INSERTP is non-nil, the sentences are inserted into the
  current buffer at point, formatted as a paragraph.
  \(Use `flame-paragraph' to obtain a formatted paragraph as a string.\)"
@@ -552,6 +552,10 @@ Argument N determines how many sentences are in the paragraph."
     (doctor-ret-or-read 1)))
 
 (defun flame-display (string temp-buffer-name insertp)
+  "Display the flamage in a temporary buffer.
+STRING flamage string
+TEMP-BUFFER-NAME name of buffer
+INSERTP when nil use JBW display hacks"
   (let ((temp-buffer-show-function temp-buffer-show-function)
         (temp-buffer-show-hook
          (function (lambda ()
@@ -575,16 +579,17 @@ Argument N determines how many sentences are in the paragraph."
            (with-output-to-temp-buffer temp-buffer-name
              (princ string))))))
 
-;; Return a random member of list L.
-(defsubst flame-random-member (l)
-  (nth (random (length l)) l))
+(defsubst random-member (l)
+  "Return a random member of list L."
+  (and (consp l)
+       (nth (random (length l)) l)))
 
-;; Tokenize sentence so substitution words are separated.
-;; The character `^' can be used to join suffixes to the end of a
-;; substitution token, but do not show up in the resulting list.
-;; e.g. "Many *word^s with *sub, with 2^32 at *end."
-;;      => ("Many " "*word" "s with " "*sub" ", with 2^32 at " "*end" ".")
 (defun flame-split (s)
+"Tokenize sentence S so substitution words are separated.
+The character `^' can be used to join suffixes to the end of a
+substitution token, but do not show up in the resulting list.
+e.g. 'Many *word^s with *sub, with 2^32 at *end.'
+     => ('Many ' '*word' 's with ' '*sub' ', with 2^32 at ' '*end' '.')"
   (let ((l nil)
         (p 0)
         (len (length s))
@@ -604,8 +609,8 @@ Argument N determines how many sentences are in the paragraph."
     (store-match-data md)
     (nreverse l)))
 
-;; Rudimentary pluralization correction
 (defun flame-plural-correct (l)
+  "Rudimentary pluralization correction.  L is a list of sentences."
   (let ((p l)
         elt end)
     (while (and p (cdr p))
@@ -619,9 +624,10 @@ Argument N determines how many sentences are in the paragraph."
       (setq p (cdr p))))
   l)
 
-;; Iterate over string STR, replacing all substrings beginning
-;; with a '*' or '!'  with a random selection from the appropriate list.
 (defun flame-iterate-list (str)
+"Iterate over string STR, replacing substrings.
+Replaces all substrings beginning with a '*' or '!'
+with a random selection from the appropriate list."
   (let* ((l (flame-split str))
          (p l)
          elt)
@@ -636,17 +642,20 @@ Argument N determines how many sentences are in the paragraph."
     (mapconcat 'identity (flame-plural-correct l) "")))
 
 (defun flame-substitute (category)
+  "Perform substitutions in a random member of grammar CATEGORY."
   (let ((tbl (flame-category category)))
     (if tbl
         (flame-iterate-list (flame-random-member tbl))
       category)))
 
 (defun flame-category (category)
+  "Get the flame CATEGORY grammar."
   (and (stringp category)
        (setq category (intern (substring category 1))))
   (cdr (assq category flame-grammar)))
 
 (defun flame-capitalize (s &optional destructive)
+  "Capitalize S, optionally DESTRUCTIVE."
   (or destructive
       (setq s (copy-sequence s)))
   (aset s 0 (upcase (aref s 0)))
@@ -655,4 +664,4 @@ Argument N determines how many sentences are in the paragraph."
 (provide 'flame)
 (provide 'friedman-flame)
 
-;; flame.el ends here.
+;;; flame.el ends here
