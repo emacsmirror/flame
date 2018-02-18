@@ -17,85 +17,87 @@ Or a paragraph with N sentences:
 Flame your psychotherapist:
 : M-x flame-psychoanalyze
 
-: I am the psychotherapist.  Please, describe your problems.  Each time
-: you are finished talking, type RET twice.
-:
-:   I don't want to hear about your right wing death squad.  Arsehole!
-:
-: Can you elaborate on that?
-:
-:   You're always totally wrong.  No nukes!
-:
-: Why do you say nukes?
-:
-:   I don't want to hear about your Lisp Machine.  How can you say that
-:   Dennis Ritchie is dogmatic?
-:
-: What do you think?
-:
-:   You should have a punk haircut, right?
-:
-: Is it because of your plans that you say I should have a punk haircut
-: right?
-:
-:   I firmly believe that men are inherently superior to women, but we
-:   should end the war on democracy.  Your subtlety reminds me of a source
-:   license.
-:
-: Maybe your life has something to do with this.
-:
-:   Fool!  I mean, I have many white friends.
-:
-: What makes you believe you mean you have many white friends?
-:
-:   How can you say that religious people are all egocentric fools?  Don't
-:   you realise that Dennis Ritchie is a cool dude?
-:
-: Are you sure that that I shouldn't me realise that dennis ritchie is a
-: cool dude?
-:
-:   Ban the war on freedom!  Ban the war on freedom!
-:
-: Is it because of the people you hang around with that you say ban the
-: war on freedom?
-:
-:   You wish you were communist, right?
-:
-: Perhaps problems at school have something to do with this.
-:
-:   Your stupidity is matched only by your lousiness.  I mean, it's well
-:   known that you wish you were a religion.
-:
-: Is it because I wish I was a religion that you came to me?
-:
-:   Wimp!
-:
-: I would appreciate it if you would continue.
-:
-:   Don't you realise that Groucho is a cool dude?
-:
-: Do you really think that I shouldn't me realise that groucho is a cool
-: dude?
-:
-:   Let me tell you something, you beast, my operation is pretty good.
-:   Only a fool like you would say that you look like a MicroVAX II.
-:
-: Does it bother you that I look like a microvax ii?
-:
-:   I firmly believe that intellectual people are inherently superior to
-:   religious people.
-:
-: When did you first know that intellectual people are inherently
-: superior to religious people?
-:
-:   How can you say that all unborn dudes should get punk haircuts?  The
-:   oceans are full of dirty fish.
-:
-: What makes you think the oceans are full of dirty fish?
-:
-:   I'll bet you think that MP3s are odious.  Let me tell you something,
-:   you weakling, life is poor hygiene.
-:
-: Earlier you said I wish I was a religion?
-:
-:   Life is vacuous stupidity, right?
+#+BEGIN_SRC text
+ I am the psychotherapist.  Please, describe your problems.  Each time
+ you are finished talking, type RET twice.
+
+   I don't want to hear about your right wing death squad.  Arsehole!
+
+ Can you elaborate on that?
+
+   You're always totally wrong.  No nukes!
+
+ Why do you say nukes?
+
+   I don't want to hear about your Lisp Machine.  How can you say that
+   Dennis Ritchie is dogmatic?
+
+ What do you think?
+
+   You should have a punk haircut, right?
+
+ Is it because of your plans that you say I should have a punk haircut
+ right?
+
+   I firmly believe that men are inherently superior to women, but we
+   should end the war on democracy.  Your subtlety reminds me of a source
+   license.
+
+ Maybe your life has something to do with this.
+
+   Fool!  I mean, I have many white friends.
+
+ What makes you believe you mean you have many white friends?
+
+   How can you say that religious people are all egocentric fools?  Don't
+   you realise that Dennis Ritchie is a cool dude?
+
+ Are you sure that that I shouldn't me realise that dennis ritchie is a
+ cool dude?
+
+   Ban the war on freedom!  Ban the war on freedom!
+
+ Is it because of the people you hang around with that you say ban the
+ war on freedom?
+
+   You wish you were communist, right?
+
+ Perhaps problems at school have something to do with this.
+
+   Your stupidity is matched only by your lousiness.  I mean, it's well
+   known that you wish you were a religion.
+
+ Is it because I wish I was a religion that you came to me?
+
+   Wimp!
+
+ I would appreciate it if you would continue.
+
+   Don't you realise that Groucho is a cool dude?
+
+ Do you really think that I shouldn't me realise that groucho is a cool
+ dude?
+
+   Let me tell you something, you beast, my operation is pretty good.
+   Only a fool like you would say that you look like a MicroVAX II.
+
+ Does it bother you that I look like a microvax ii?
+
+   I firmly believe that intellectual people are inherently superior to
+   religious people.
+
+ When did you first know that intellectual people are inherently
+ superior to religious people?
+
+   How can you say that all unborn dudes should get punk haircuts?  The
+   oceans are full of dirty fish.
+
+ What makes you think the oceans are full of dirty fish?
+
+   I'll bet you think that MP3s are odious.  Let me tell you something,
+   you weakling, life is poor hygiene.
+
+ Earlier you said I wish I was a religion?
+
+   Life is vacuous stupidity, right?
+#+END_SRC
