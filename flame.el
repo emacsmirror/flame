@@ -645,7 +645,8 @@ INSERTP when nil use JBW display hacks"
                       (function (lambda (buf)
                                   (with-current-buffer buf
                                     (fill-paragraph nil))
-                                  (show-temp-buffer buf)))))
+                                  (with-no-warnings
+                                    (show-temp-buffer buf))))))
            (with-output-to-temp-buffer temp-buffer-name
              (princ string))))))
 
