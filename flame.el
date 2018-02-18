@@ -536,7 +536,7 @@ Reference a member with *war-thing."
     "they don't know how"
     "they don't want their children to grow up to be too lazy to steal"
     "they're too *adjective")
-  "List of flame-reasons used for flamage generation.
+  "List of ‘flame-reasons’ used for flamage generation.
 Reference a member with *reason."
   :group 'flame
   :type '(repeat string))
@@ -619,7 +619,7 @@ Argument N determines how many sentences are in the paragraph."
         (cons 'computer-os flame-computer-os)
         (cons 'war-thing flame-war-things)
         (cons 'reason flame-reasons))
-  "Maps substitution tokens to lists of candidates")
+  "Maps substitution tokens to lists of candidates.")
 
 (defun flame--display (string temp-buffer-name insertp)
   "Display the flamage in a temporary buffer.
