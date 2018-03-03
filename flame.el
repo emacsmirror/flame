@@ -550,7 +550,7 @@ Reference a member with *reason."
 Prefix argument N means generated a flame of N sentences.
 
 If called interactively, the results are displayed in a temporary buffer.
- Use \\[insert-flame] to insert a flame into the current buffer.
+ Use \\[flame-insert] to insert a flame into the current buffer.
 
 If called from Lisp, a list of N sentences is returned.
 If optional arg INSERTP is non-nil, the sentences are inserted into the
@@ -567,7 +567,7 @@ If optional arg INSERTP is non-nil, the sentences are inserted into the
     l))
 
 ;;;###autoload
-(defun insert-flame (&optional n)
+(defun flame-insert (&optional n)
   "Insert a flame into the current buffer.
 Prefix argument N means insert N sentences, formatted as a paragraph."
   (interactive "p")
@@ -585,7 +585,7 @@ Argument N determines how many sentences are in the paragraph."
   (let ((buf (generate-new-buffer " *flame-paragraph*")))
     (unwind-protect
         (with-current-buffer buf
-          (insert-flame n)
+          (flame-insert n)
           ;; don't return final newline
           (buffer-substring (point-min) (1- (point-max))))
       (kill-buffer buf))))
@@ -600,7 +600,7 @@ Argument N determines how many sentences are in the paragraph."
   (switch-to-buffer "*doctor*")
   (sit-for 0)
   (while (not (input-pending-p))
-    (insert-flame (1+ (random 2)))
+    (flame-insert (1+ (random 2)))
     (insert "\n")
     (sit-for 0)
     (doctor-ret-or-read 1)))
