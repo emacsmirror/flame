@@ -7,8 +7,7 @@
 ;;         Noah Friedman <friedman@splode.com>
 ;; Maintainer: Noah Friedman <friedman@splode.com>
 ;; Keywords: games
-
-;; $Id: flame.el,v 1.6 2015/06/30 20:27:12 friedman Exp $
+;; Version: 2.0
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
