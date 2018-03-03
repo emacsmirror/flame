@@ -593,6 +593,7 @@ Argument N determines how many sentences are in the paragraph."
 (defun flame-psychoanalyze ()
   "Mr. Angry goes to the analyst."
   (interactive)
+  (require 'doctor)
   (doctor)                              ; start the psychotherapy
   (message "")
   (switch-to-buffer "*doctor*")
