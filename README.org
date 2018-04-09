@@ -1,5 +1,6 @@
 The industrial strength automatic flamage generator.
 
+Available as the =flame= package from Melpa.
 Read the commentary in =flame.el= for the history of this program.
 
 Generate flamage and display in a temporary buffer:
